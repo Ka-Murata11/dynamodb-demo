@@ -1,0 +1,7 @@
+version: "3.8"
+
+services:
+  golang:
+    volumes:
+      - .:/workspace:cached
+    command: sleep infinity

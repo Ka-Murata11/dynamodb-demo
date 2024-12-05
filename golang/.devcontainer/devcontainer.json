@@ -1,0 +1,9 @@
+{
+    "name": "Golang For Dynamodb Dev Container",
+    "dockerComposeFile": [
+        "../../docker-compose.yml",
+        "../../.devcontainer/docker-compose.yml"
+    ],
+    "service": "golang",
+    "workspaceFolder": "/workspace/golang"
+}
