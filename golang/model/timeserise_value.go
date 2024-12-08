@@ -17,3 +17,9 @@ type TimeSeriseValuePrepare struct {
 	Timestamp string   `dynamodbav:"timestamp"`
 	Values    []string `dynamodbav:"values"`
 }
+
+type TypeData struct {
+	UserID    string `dynamodbav:"user_id"`
+	Timestamp string `dynamodbav:"timestamp"`
+	Value     string `dynamodbav:"value"`
+}
