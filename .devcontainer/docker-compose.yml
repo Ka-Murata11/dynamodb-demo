@@ -1,7 +1,31 @@
-version: "3.8"
+version: '3.8'
 
 services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb"]
+
+  dynamodb-admin:
+    image: aaronshaf/dynamodb-admin
+    container_name: dynamodb-admin
+    ports:
+      - "8001:8001"
+    environment:
+      DYNAMO_ENDPOINT: http://dynamodb:8000
+    depends_on:
+      - dynamodb
+  
   golang:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: golang
     volumes:
-      - .:/workspace:cached
+      - ../:/workspace:cached
     command: sleep infinity
+    ports:
+      - "1323:1323"
+    
